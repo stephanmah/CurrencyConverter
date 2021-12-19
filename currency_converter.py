@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import *
 import json
 import requests
 
@@ -37,9 +38,20 @@ currency_conversion(default_pair)
 class App(tk.Tk):
     def __init__(self):
         super().__init__()
+
         self.geometry('500x500')
         self.resizable(0,0)
         self.configure(bg = "White")
+        self.title("Currency Converter")
+ 
+
+
+        self.label = Label(self, text = "This is a test")
+        self.label.grid(columnspan = 2, sticky = W)
+        
+        self.button = Button(self, text = "Test")
+        self.button.grid(columnspan = 2, sticky = W)
+        
 
 if __name__ == "__main__":
         app = App()
