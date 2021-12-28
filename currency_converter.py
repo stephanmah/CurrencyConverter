@@ -4,34 +4,32 @@ import requests
 
 
 url = 'https://v6.exchangerate-api.com/v6/c8659d6570fb1fa0887c064a/latest/USD'
-api = "c8659d6570fb1fa0887c064a"
-default_pair = 'https://v6.exchangerate-api.com/v6/c8659d6570fb1fa0887c064a/pair/EUR/GBP/1'
+url_response = requests.get(url)
+currency_dict = url_response.json()
+currency_list = currency_dict.get("conversion_rates")
 
 
-response = requests.get(url)
-currency_dict = response.json()
 
-print(currency_dict)
+def choose_currencies():
+    print(url)
+    print("List of available currencies: \n", list(currency_list))
 
-returned_string = json.dumps(currency_dict)
+    from_currency = input("What currency do you have: ")
+    to_currency = input("What currency do you want: ")
+    money_amount = input(f"How much {from_currency} do you want to exchange: ")
 
-dtest = json.loads(returned_string)
-values = currency_dict.get("conversion_rates")
+    edited_url = f"https://v6.exchangerate-api.com/v6/c8659d6570fb1fa0887c064a/pair/{from_currency}/{to_currency}/{money_amount}"
 
-currency_list = values.keys()
+    response = requests.get(edited_url)
+    dictionary = response.json()
 
-
-def currency_conversion(site):
-    data = requests.get(site)
-    currency_dictionary = data.json()
-
-    from_currency = currency_dictionary.get("base_code")
-    to_currency = currency_dictionary.get("target_code")
-    amount = currency_dictionary.get("conversion_result")
-
-    print("This is the base currency: ", from_currency)
-    print("This is the target currency: ", to_currency)
-    print("This is the amount: ", amount)
+    print(f"Your {money_amount} {from_currency} converts to ",dictionary['conversion_result'],to_currency)
 
 
-currency_conversion(default_pair)
+
+    
+
+
+choose_currencies()
+
+
