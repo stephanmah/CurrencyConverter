@@ -29,6 +29,5 @@ def choose_currencies():
     
 
 
-choose_currencies()
 
 
