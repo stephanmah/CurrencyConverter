@@ -9,13 +9,12 @@ currency_dict = url_response.json()
 currency_list = currency_dict.get("conversion_rates")
 
 
-
 def choose_currencies():
-    print(url)
+    
     print("List of available currencies: \n", list(currency_list))
 
-    from_currency = input("What currency do you have: ")
-    to_currency = input("What currency do you want: ")
+    from_currency = input("What currency do you have: ").upper()
+    to_currency = input("What currency do you want: ").upper()
     money_amount = input(f"How much {from_currency} do you want to exchange: ")
 
     edited_url = f"https://v6.exchangerate-api.com/v6/c8659d6570fb1fa0887c064a/pair/{from_currency}/{to_currency}/{money_amount}"
