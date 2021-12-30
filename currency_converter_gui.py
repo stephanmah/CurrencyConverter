@@ -9,11 +9,10 @@ layout = [
      sg.Text("How much of your currency do you want to exchange: ")],
     [sg.Listbox(list(currency_converter.currency_list), size=(20, 4),
     enable_events=False, key='_FROMLIST_'),
-     sg.Listbox(list(currency_converter.currency_list), size=(20, 4), enable_events=False, key='_TOLIST_'), sg.Multiline(size=(20, 4), key='textbox')],
+     sg.Listbox(list(currency_converter.currency_list), size=(20, 4), enable_events=False, key='_TOLIST_'), sg.InputText(key='_INPUTAMOUNT_',size = (20,1))],
      [sg.Text("You will recieve x currency")],
-    [sg.Multiline(size=(20, 4), key='textbox')],
      
-    [sg.Button("Convert"),sg.Button("Reset")],
+    [sg.Submit()],
     [sg.Button("Exit")]
  ]
 
