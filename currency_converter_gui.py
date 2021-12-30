@@ -7,9 +7,9 @@ layout = [
     [sg.Text("Currency Converter")],
     [sg.Text("What currency do you have"), sg.Text("What currency do you want"),
      sg.Text("How much of your currency do you want to exchange: ")],
-    [sg.Listbox(list(currency_converter.currency_list), size=(20, 4),
+    [sg.Listbox(values = (list(currency_converter.currency_list)), size=(20, 4),
     enable_events=False, key='_FROMLIST_'),
-     sg.Listbox(list(currency_converter.currency_list), size=(20, 4), enable_events=False, key='_TOLIST_'), sg.InputText(key='_INPUTAMOUNT_',size = (20,1))],
+     sg.Listbox(values = (list(currency_converter.currency_list)), size=(20, 4), enable_events=False, key='_TOLIST_'), sg.InputText(key='_INPUTAMOUNT_',size = (20,1))],
      [sg.Text("You will recieve x currency")],
      
     [sg.Submit()],
@@ -17,7 +17,7 @@ layout = [
  ]
 
 #create the window
-window = sg.Window("Demo", layout, size = (700,500))
+window = sg.Window("Currency Converter", layout, size = (700,500))
 
 #create an event loop
 while True:
