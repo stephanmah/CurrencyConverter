@@ -25,6 +25,16 @@ def choose_currencies():
     print(f"Your {money_amount} {from_currency} converts to ",dictionary['conversion_result'],to_currency)
 
 
+def choose_currencies_test(from_amount = "",to_amount = "", given_amount = 1):
+
+    edited_url = f"https://v6.exchangerate-api.com/v6/c8659d6570fb1fa0887c064a/pair/{from_amount}/{to_amount}/{given_amount}"
+
+    response = requests.get(edited_url)
+    dictionary = response.json()
+
+    print(f"Your {given_amount} {from_amount} converts to ",
+          dictionary['conversion_result'], to_amount)
+
 
     
 
