@@ -14,7 +14,7 @@ layout = [
      [sg.Text("You will recieve x currency"),Multiline(size = (15,1), key = "_OUTPUTAMOUNT_") ],
      
     [sg.Submit()],
-    [sg.Button("Exit")]
+    [sg.Button("Exit ")]
  ]
 
 #create the window
